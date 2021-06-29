@@ -1,0 +1,430 @@
+[
+    {
+        "id": "1b570425.d293dc",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "9f7e180b.0b66c8",
+        "type": "debug",
+        "z": "1b570425.d293dc",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "2dec1d54.5c9a72",
+        "type": "ibmiot in",
+        "z": "1b570425.d293dc",
+        "authentication": "apiKey",
+        "apiKey": "76482e0f.cfb2a",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 90,
+        "y": 100,
+        "wires": [
+            [
+                "9a672852.508168"
+            ]
+        ]
+    },
+    {
+        "id": "9a672852.508168",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "text",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "9f7e180b.0b66c8"
+            ]
+        ]
+    },
+    {
+        "id": "e9f944bc.fa5b68",
+        "type": "ibmiot in",
+        "z": "1b570425.d293dc",
+        "authentication": "apiKey",
+        "apiKey": "76482e0f.cfb2a",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 70,
+        "y": 320,
+        "wires": [
+            [
+                "b4aba58e.b73578",
+                "c951e0e0.be4a9",
+                "a6bfda73.de7408",
+                "7a131831.4f3a68",
+                "b28cf2dc.8e30b",
+                "5608cb3d.d88294",
+                "e7872406.1f5838",
+                "b02f0803.915078"
+            ]
+        ]
+    },
+    {
+        "id": "b4aba58e.b73578",
+        "type": "debug",
+        "z": "1b570425.d293dc",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 1050,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "c951e0e0.be4a9",
+        "type": "cloudant out",
+        "z": "1b570425.d293dc",
+        "name": "",
+        "cloudant": "",
+        "database": "sensor",
+        "service": "node-red-vgpqc-2021--cloudant-1623558409081-82359",
+        "payonly": false,
+        "operation": "insert",
+        "x": 430,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a6bfda73.de7408",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "hgoods",
+        "func": "global.set('hgoods',msg.payload.hgoods)\nreturn{payload:msg.payload.hgoods}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 420,
+        "wires": [
+            [
+                "bb8649d8.a115f8",
+                "4beac34a.a5b42c",
+                "b4aba58e.b73578"
+            ]
+        ]
+    },
+    {
+        "id": "7a131831.4f3a68",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "hdairy",
+        "func": "global.set('hdairy',msg.payload.hdairy)\nreturn{payload:msg.payload.hdairy}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 412.01422119140625,
+        "y": 487.00567626953125,
+        "wires": [
+            [
+                "5cefb4af.30f15c",
+                "4beac34a.a5b42c",
+                "b4aba58e.b73578"
+            ]
+        ]
+    },
+    {
+        "id": "b28cf2dc.8e30b",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "hegoods",
+        "func": "global.set('hegoods',msg.payload.hegoods)\nreturn{payload:msg.payload.hegoods}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 560,
+        "wires": [
+            [
+                "37c8b3a2.0ab22c",
+                "4beac34a.a5b42c",
+                "b4aba58e.b73578"
+            ]
+        ]
+    },
+    {
+        "id": "5608cb3d.d88294",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "agoods",
+        "func": "global.set('agoods',msg.payload.agoods)\nreturn{payload:msg.payload.agoods}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 640,
+        "wires": [
+            [
+                "d0a08d77.3edf3",
+                "4beac34a.a5b42c",
+                "b4aba58e.b73578"
+            ]
+        ]
+    },
+    {
+        "id": "e7872406.1f5838",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "adairy",
+        "func": "global.set('adairy',msg.payload.adairy)\nreturn{payload:msg.payload.adairy}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 700,
+        "wires": [
+            [
+                "1a2acbfb.6ae284",
+                "b4aba58e.b73578",
+                "4beac34a.a5b42c"
+            ]
+        ]
+    },
+    {
+        "id": "b02f0803.915078",
+        "type": "function",
+        "z": "1b570425.d293dc",
+        "name": "aegoods",
+        "func": "global.set('aegoods',msg.payload.aegoods)\nreturn{payload:msg.payload.aegoods}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450.01422119140625,
+        "y": 750.8238525390625,
+        "wires": [
+            [
+                "f538b07f.6feeb",
+                "b4aba58e.b73578",
+                "4beac34a.a5b42c"
+            ]
+        ]
+    },
+    {
+        "id": "bb8649d8.a115f8",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "ccd57b25.7e72c8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "hgoods",
+        "label": "Total Number of Goods",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1160,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "5cefb4af.30f15c",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "ccd57b25.7e72c8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "hdairy",
+        "label": "Number of Dairy Products",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1110,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "37c8b3a2.0ab22c",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "ccd57b25.7e72c8",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "hegoods",
+        "label": "Number of Electronic Goods",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1120,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "d0a08d77.3edf3",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "b3df3f3e.0be1b",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "agoods",
+        "label": "Total Number of Goods",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1120,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "1a2acbfb.6ae284",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "b3df3f3e.0be1b",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "adairy",
+        "label": "Number of Dairy Products",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1090,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f538b07f.6feeb",
+        "type": "ui_text",
+        "z": "1b570425.d293dc",
+        "group": "b3df3f3e.0be1b",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "aegoods",
+        "label": "Number of Electronic Goods",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1120,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4beac34a.a5b42c",
+        "type": "ui_toast",
+        "z": "1b570425.d293dc",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 1070,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "76482e0f.cfb2a",
+        "type": "ibmiot",
+        "name": "iotdata",
+        "keepalive": "60",
+        "serverName": "jokjkc.messaging.internetofthings.ibmcloud.com",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "ccd57b25.7e72c8",
+        "type": "ui_group",
+        "name": "Warehouse Management",
+        "tab": "82c18539.c0df58",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "b3df3f3e.0be1b",
+        "type": "ui_group",
+        "name": "Warehouse Management",
+        "tab": "26ee0fea.d1277",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "82c18539.c0df58",
+        "type": "ui_tab",
+        "name": "Hyderabad Location",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "26ee0fea.d1277",
+        "type": "ui_tab",
+        "name": "Adilabad Location",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
